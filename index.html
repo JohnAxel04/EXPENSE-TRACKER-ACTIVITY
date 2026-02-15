@@ -52,7 +52,7 @@
             </select>
         </div>
         <div class="total">
-            Total: $<span id="total-expense">0.00</span>
+            Total: ₱<span id="total-expense">0.00</span>
         </div>
     </div>
 
@@ -82,7 +82,8 @@
             <button class="cancel-btn" onclick="closeModal('delete-modal')">Cancel</button>
         </div>
     </div>
-    <div class="whole">
+    <button id="showBtn" onclick="show()">Show Graph</button>
+    <div class="whole" id="whole">
         <div class="chart">
             <canvas id="expenseChart"></canvas>
         </div>

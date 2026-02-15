@@ -290,6 +290,15 @@ function updateChart() {
         }
     });
 };
+
+
+const showw = document.getElementById("showBtn");
+const whole = document.getElementById("whole");
+function show(){
+    const showed = whole.style.display === "flex";
+
+    whole.style.display = showed ? "none": " flex";
+}
 updateChart();
 updateChart2()
 updateUI();
