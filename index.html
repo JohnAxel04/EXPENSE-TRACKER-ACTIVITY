@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses-Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker App</h1>
+    </header>
+    <div class="form-group">
+        <input type="text" id="expense-name" placeholder="Expense Name">
+        <input type="number" id="expense-amount" placeholder="Expense Amount">
+        <select name="category" id="category">
+            <option value="" disabled selected>Select Category</option>
+            <option value="food">Food</option>
+            <option value="transfort">Transfort</option>
+            <option value="shopping">Shopping</option>
+            <option value="others">others</option>
+        </select>
+        <input type="date" id="expense-date">
+        <button id="add-expense" disabled>Add Expenses</button>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Expense Name</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="expense-table"></tbody>
+        </table>
+    </div>
+
+    <div class="filter-group">
+        <div>
+            <label for="cetegory-filter">Filter By Category</label>
+            <select id="cetegory-filter">
+                <option value="All">All</option>
+                <option value="Food">Food</option>
+                <option value="Transfort">Transfort</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        <div class="total">
+            Total: $<span id="total-expense">0.00</span>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h2>Edit Expenses</h2>
+            <input type="text" id="edit-expense-name" placeholder="Expense Name">
+            <input type="number" id="edit-expense-amount" placeholder="Expense Amount">
+            <select name="category" id="edit-category">
+                <option value="" disabled selected>Select Category</option>
+                <option value="food">Food</option>
+                <option value="transfort">Transfort</option>
+                <option value="shopping">Shopping</option>
+                <option value="others">others</option>
+            </select>
+            <input type="date" id="edit-expense-date">
+            <button class="confirm-btn" id="confirm-edit">Save Changes</button>
+            <button class="cancel-btn" id="cancel-edit" onclick="closeModal('edit-modal')">Cancel</button>
+        </div>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete this expenses?</p>
+            <button class="confirm-btn" id="confirm-delete">Yes, Delete</button>
+            <button class="cancel-btn" onclick="closeModal('delete-modal')">Cancel</button>
+        </div>
+    </div>
+    <div class="whole">
+        <div class="chart">
+            <canvas id="expenseChart"></canvas>
+        </div>
+        <div class="chart2">
+            <canvas id="expense-Chart"></canvas>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
